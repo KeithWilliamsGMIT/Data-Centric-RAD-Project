@@ -30,8 +30,8 @@ public class DAO {
 		ResultSet rs = myStmt.executeQuery();
 		
 		while (rs.next()) {
-			String manuCode = rs.getString("manu_name");
-			String manuName = rs.getString("manu_code");
+			String manuCode = rs.getString("manu_code");
+			String manuName = rs.getString("manu_name");
 			String manuDetails = rs.getString("manu_details");
 			manufacturers.add(new Manufacturer(manuCode, manuName, manuDetails));
 		}
@@ -41,5 +41,20 @@ public class DAO {
 		conn.close();
 		
 		return manufacturers;
+	}
+	
+	// Insert a new manufacturer into the manufacturer table
+	public void addManufacturer(Manufacturer newManufacturer) throws Exception {
+		Connection conn = mysqlDS.getConnection();
+		PreparedStatement myStmt = conn.prepareStatement("INSERT INTO manufacturer " +
+					 									"VALUES (?,?,?)");
+		
+		myStmt.setString(1, newManufacturer.getManuCode());
+		myStmt.setString(2, newManufacturer.getManuName());
+		myStmt.setString(3, newManufacturer.getManuDetails());
+		myStmt.executeUpdate();
+		
+		myStmt.close();
+		conn.close();
 	}
 }
