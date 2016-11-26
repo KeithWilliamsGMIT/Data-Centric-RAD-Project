@@ -16,7 +16,8 @@ public class Manufacturer {
 		this.manuName = manuName;
 		this.manuDetails = manuDetails;
 	}
-
+	
+	// Getters and Setters
 	public String getManuCode() {
 		return manuCode;
 	}

@@ -1,0 +1,13 @@
+.tableHeader {
+	padding: 5px;
+	text-align: left;
+	background-color: dodgerblue;
+}
+
+.tableOddRow {
+	background-color: lightblue;
+}
+
+.tableEvenRow {
+	background-color: skyblue;
+}

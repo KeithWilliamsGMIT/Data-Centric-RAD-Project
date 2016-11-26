@@ -19,7 +19,8 @@ public class Model {
 		this.modelName = modelName;
 		this.modelDesc = modelDesc;
 	}
-
+	
+	// Getters and Setters
 	public String getManuCode() {
 		return manuCode;
 	}

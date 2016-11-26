@@ -26,7 +26,8 @@ public class Vehicle {
 		this.vehicleColour = vehicleColour;
 		this.vehicleFuel = vehicleFuel;
 	}
-
+	
+	// Getters and Setters
 	public String getVehicleReg() {
 		return vehicleReg;
 	}
