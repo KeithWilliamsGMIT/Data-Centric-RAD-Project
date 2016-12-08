@@ -14,15 +14,15 @@
 		<h:form>
 			<h:messages styleClass="message" globalOnly="true"/>
 			
-			Code: <h:inputText id="code" value="#{manufacturersController.newManufacturer.manuCode}" required="true" requiredMessage="Code is mandatory"/>
+			Code: <h:inputText id="code" value="#{manufacturer.manuCode}" required="true" requiredMessage="Code is mandatory"/>
 			<h:message for="code" styleClass="message"/> 
 			<br/><br/>
-			Name: <h:inputText id="name" value="#{manufacturersController.newManufacturer.manuName}" required="true" requiredMessage="Name is mandatory"/>
+			Name: <h:inputText id="name" value="#{manufacturer.manuName}" required="true" requiredMessage="Name is mandatory"/>
 			<h:message for="name" styleClass="message"/>
 			<br/><br/>
-			Details: <h:inputText value="#{manufacturersController.newManufacturer.manuDetails}"/>
+			Details: <h:inputText value="#{manufacturer.manuDetails}"/>
 			<br/><br/>
-			<h:commandButton value="Add" action="#{manufacturersController.addManufacturer}"/>
+			<h:commandButton value="Add" action="#{manufacturersController.addManufacturer(manufacturer)}"/>
 		</h:form>
 		
 		<h:link value="Home" outcome="index"/>&#160;

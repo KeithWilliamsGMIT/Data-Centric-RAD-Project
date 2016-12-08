@@ -15,29 +15,33 @@
 		<h:outputStylesheet library="css" name="style.css"/>
 		
 		<h:form>
+			<h:messages styleClass="message"/>
+			
 			<h:commandButton value="Add Manufacturer" action="add_manufacturer"/>
+			
+			<h:dataTable value="#{manufacturersController.manufacturers}" var="manufacturer"
+				headerClass="tableHeader"
+				rowClasses="tableOddRow,tableEvenRow">
+				<h:column>    				
+					<f:facet name="header">Manufacturer Code</f:facet>    				
+					#{manufacturer.manuCode}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Manufacturer Name</f:facet>
+					#{manufacturer.manuName}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Manufacturer Details</f:facet>
+					#{manufacturer.manuDetails}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Action</f:facet>
+					<h:commandLink value="Update"/>
+					<br/>
+					<h:commandLink value="Delete" action="#{manufacturersController.deleteManufacturer(manufacturer)}"/>
+				</h:column>
+			</h:dataTable>
 		</h:form>
-		
-		<h:dataTable value="#{manufacturersController.manufacturers}" var="manufacturer"
-			headerClass="tableHeader"
-			rowClasses="tableOddRow,tableEvenRow">
-			<h:column>    				
-				<f:facet name="header">Manufacturer Code</f:facet>    				
-				#{manufacturer.manuCode}
-			</h:column>
-			<h:column>
-				<f:facet name="header">Manufacturer Name</f:facet>
-				#{manufacturer.manuName}
-			</h:column>
-			<h:column>
-				<f:facet name="header">Manufacturer Details</f:facet>
-				#{manufacturer.manuDetails}
-			</h:column>
-			<h:column>
-				<f:facet name="header">Action</f:facet>
-				
-			</h:column>
-		</h:dataTable>
 		
 		<h:link value="Home" outcome="index"/>
 	</h:body>

@@ -8,11 +8,16 @@ public class Manufacturer {
 	private String manuName;
 	private String manuDetails;
 	
+	// Constructors
 	public Manufacturer() {}
 	
-	public Manufacturer(String manuCode, String manuName, String manuDetails) {
+	public Manufacturer(String manuCode) {
 		super();
 		this.manuCode = manuCode;
+	}
+	
+	public Manufacturer(String manuCode, String manuName, String manuDetails) {
+		this(manuCode);
 		this.manuName = manuName;
 		this.manuDetails = manuDetails;
 	}

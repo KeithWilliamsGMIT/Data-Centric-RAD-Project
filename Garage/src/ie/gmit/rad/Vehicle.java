@@ -5,22 +5,22 @@ import javax.faces.bean.ManagedBean;
 @ManagedBean
 public class Vehicle {
 	private String vehicleReg;
-	private String manuCode;
-	private String modelCode;
+	private Model model;
 	private int vehicleMileage;
 	private float vehiclePrice;
 	private String vehicleColour;
 	private String vehicleFuel;
 	
-	public Vehicle() {}
+	// Constructors
+	public Vehicle() {
+		model = new Model();
+	}
 	
-	public Vehicle(String vehicleReg, String manuCode, String modelCode,
-			int vehicleMileage, float vehiclePrice, String vehicleColour,
-			String vehicleFuel) {
+	public Vehicle(String vehicleReg, Model model, int vehicleMileage,
+			float vehiclePrice, String vehicleColour, String vehicleFuel) {
 		super();
 		this.vehicleReg = vehicleReg;
-		this.manuCode = manuCode;
-		this.modelCode = modelCode;
+		this.model = model;
 		this.vehicleMileage = vehicleMileage;
 		this.vehiclePrice = vehiclePrice;
 		this.vehicleColour = vehicleColour;
@@ -36,20 +36,12 @@ public class Vehicle {
 		this.vehicleReg = vehicleReg;
 	}
 
-	public String getManuCode() {
-		return manuCode;
+	public Model getModel() {
+		return model;
 	}
 
-	public void setManuCode(String manuCode) {
-		this.manuCode = manuCode;
-	}
-
-	public String getModelCode() {
-		return modelCode;
-	}
-
-	public void setModelCode(String modelCode) {
-		this.modelCode = modelCode;
+	public void setModelCode(Model model) {
+		this.model = model;
 	}
 
 	public int getVehicleMileage() {

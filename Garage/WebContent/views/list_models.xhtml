@@ -1,8 +1,46 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html">
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
 	
 	<h:head>
+		<f:metadata>
+			<f:event type="preRenderView" listener="#{modelsController.loadModels()}"/>
+		</f:metadata>
+		
 		<title>Garage - Manage Models</title>
 	</h:head>
+	
+	<h:body>
+		<h:outputStylesheet library="css" name="style.css"/>
+		
+		<h:form>
+			<h:messages styleClass="message"/>
+			
+			<h:commandButton value="Add Model" action="add_model"/>
+			
+			<h:dataTable value="#{modelsController.models}" var="model"
+				headerClass="tableHeader"
+				rowClasses="tableOddRow,tableEvenRow">
+				<h:column>    				
+					<f:facet name="header">Manufacturer Code</f:facet>    				
+					#{model.manufacturer.manuCode}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Model Code</f:facet>
+					#{model.modelCode}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Model Name</f:facet>
+					#{model.modelName}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Model Description</f:facet>
+					#{model.modelDesc}
+				</h:column>
+			</h:dataTable>
+		</h:form>
+		
+		<h:link value="Home" outcome="index"/>
+	</h:body>
 </html>

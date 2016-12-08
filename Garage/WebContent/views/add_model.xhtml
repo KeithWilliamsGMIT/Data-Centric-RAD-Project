@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+	
+	<h:head>
+		<title>Garage - Add Model</title>
+	</h:head>
+	
+	<h:body>
+		<h:outputStylesheet library="css" name="style.css"/>
+		
+		<h3>Add Model</h3>
+		
+		<h:form>
+			<h:messages styleClass="message" globalOnly="true"/>
+			
+			Manufacturer Code: <h:inputText id="manu_code" value="#{model.manufacturer.manuCode}" required="true" requiredMessage="Manufacturer Code is mandatory"/>
+			<h:message for="manu_code" styleClass="message"/> 
+			<br/><br/>
+			Code: <h:inputText id="model_code" value="#{model.modelCode}" required="true" requiredMessage="Model Code is mandatory"/>
+			<h:message for="model_code" styleClass="message"/> 
+			<br/><br/>
+			Name: <h:inputText id="name" value="#{model.modelName}" required="true" requiredMessage="Name is mandatory"/>
+			<h:message for="name" styleClass="message"/>
+			<br/><br/>
+			Details: <h:inputText value="#{model.modelDesc}"/>
+			<br/><br/>
+			<h:commandButton value="Add" action="#{modelsController.addModel(model)}"/>
+		</h:form>
+		
+		<h:link value="Home" outcome="index"/>&#160;
+		<h:link value="Models" outcome="list_models"/>
+	</h:body>
+</html>

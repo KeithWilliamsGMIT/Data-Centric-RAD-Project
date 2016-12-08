@@ -4,29 +4,32 @@ import javax.faces.bean.ManagedBean;
 
 @ManagedBean
 public class Model {
-	private String manuCode;
+	private Manufacturer manufacturer;
 	private String modelCode;
 	private String modelName;
 	private String modelDesc;
 	
-	public Model() {}
+	// Constructors
+	public Model() {
+		manufacturer = new Manufacturer();
+	}
 
-	public Model(String manuCode, String modelCode, String modelName,
+	public Model(Manufacturer manufacturer, String modelCode, String modelName,
 			String modelDesc) {
 		super();
-		this.manuCode = manuCode;
+		this.manufacturer = manufacturer;
 		this.modelCode = modelCode;
 		this.modelName = modelName;
 		this.modelDesc = modelDesc;
 	}
 	
 	// Getters and Setters
-	public String getManuCode() {
-		return manuCode;
+	public Manufacturer getManufacturer() {
+		return manufacturer;
 	}
 
-	public void setManuCode(String manuCode) {
-		this.manuCode = manuCode;
+	public void setManufacturer(Manufacturer manufacturer) {
+		this.manufacturer = manufacturer;
 	}
 
 	public String getModelCode() {
