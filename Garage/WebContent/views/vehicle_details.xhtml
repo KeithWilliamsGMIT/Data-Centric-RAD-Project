@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+	
+	<h:head>
+		<title>Garage - Full Vehicle Details</title>
+	</h:head>
+	
+	<h:body>
+		<h:outputStylesheet library="css" name="style.css"/>
+		
+		<h3>Full Vehicle Detail</h3>
+		
+		<h:panelGrid columns="2">
+			<h:outputText value="Registration: " styleClass="bold"/>
+			<h:outputText value="#{vehiclesController.vehicle.vehicleReg}"/>
+			
+			<h:outputText value="Manufacturer Code: " styleClass="bold"/>
+			<h:outputText value="#{vehiclesController.vehicle.model.manufacturer.manuCode}"/>
+			
+			<h:outputText value="Manufacturer Name: " styleClass="bold"/>
+			<h:outputText value="#{vehiclesController.vehicle.model.manufacturer.manuName}"/>
+			
+			<h:outputText value="Manufacturer Details: " styleClass="bold"/>
+			<h:outputText value="#{vehiclesController.vehicle.model.manufacturer.manuDetails}"/>
+			
+			<h:outputText value="Model Code: " styleClass="bold"/>
+			<h:outputText value="#{vehiclesController.vehicle.model.modelCode}"/>
+			
+			<h:outputText value="Model Name: " styleClass="bold"/>
+			<h:outputText value="#{vehiclesController.vehicle.model.modelName}"/>
+			
+			<h:outputText value="Model Description: " styleClass="bold"/>
+			<h:outputText value="#{vehiclesController.vehicle.model.modelDesc}"/>
+			
+			<h:outputText value="Mileage: " styleClass="bold"/>
+			<h:outputText value="#{vehiclesControllervehicle.vehicleMileage}"/>
+			
+			<h:outputText value="Price: " styleClass="bold"/>
+			<h:outputText value="#{vehiclesController.vehicle.vehiclePrice}"/>
+			
+			<h:outputText value="Colour: " styleClass="bold"/>
+			<h:outputText value="#{vehiclesController.vehicle.vehicleColour}"/>
+			
+			<h:outputText value="Fuel: " styleClass="bold"/>
+			<h:outputText value="#{vehiclesController.vehicle.vehicleFuel}"/>
+		</h:panelGrid>
+		
+		<h:link value="Home" outcome="index"/>&#160;
+		<h:link value="Vehicles" outcome="list_vehicles"/>
+	</h:body>
+</html>

@@ -15,3 +15,7 @@
 .tableEvenRow {
 	background-color: skyblue;
 }
+
+.bold {
+	font-weight: bold;
+}
