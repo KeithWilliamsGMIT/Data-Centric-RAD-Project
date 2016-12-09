@@ -36,7 +36,7 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">Action</f:facet>
-					<h:commandLink value="Update"/>
+					<h:commandLink value="Update" action="#{manufacturersController.setUpdateManufacturer(manufacturer)}"/>
 					<br/>
 					<h:commandLink value="Delete" action="#{manufacturersController.deleteManufacturer(manufacturer)}"/>
 				</h:column>

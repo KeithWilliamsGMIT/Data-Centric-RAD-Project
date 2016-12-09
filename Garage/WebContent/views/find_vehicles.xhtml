@@ -1,8 +1,44 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html">
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
 	
 	<h:head>
 		<title>Garage - Find Vehicles</title>
 	</h:head>
+	
+	<h:body>
+		<h:outputStylesheet library="css" name="style.css"/>
+		
+		<h3>Find All Vehicles</h3>
+		
+		<h:form>
+			<h:messages styleClass="message" globalOnly="true"/>
+			
+			Price: 
+			
+			<h:selectOneMenu>
+				<f:selectItem itemValue="less" itemLabel="Less Than"/>
+				<f:selectItem itemValue="greater" itemLabel="Greater Than"/>
+				<f:selectItem itemValue="equal" itemLabel="Equal To"/>
+			</h:selectOneMenu>
+			
+			<h:inputText/>
+			<br/><br/>
+			
+			Colour: <h:inputText/>
+			<br/><br/>
+			
+			Fuel: <h:selectOneMenu>
+				<f:selectItem itemValue="petrol" itemLabel="Petrol"/>
+				<f:selectItem itemValue="diesel" itemLabel="Diesel"/>
+			</h:selectOneMenu>
+			<br/><br/>
+			
+			<!-- Replace search_results with a method to get all vehicles that match the search -->
+			<h:commandButton value="Search" action="search_results"/>
+		</h:form>
+		
+		<h:link value="Home" outcome="index"/>
+	</h:body>
 </html>

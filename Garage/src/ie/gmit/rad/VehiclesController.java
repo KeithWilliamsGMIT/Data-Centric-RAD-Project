@@ -63,7 +63,7 @@ public class VehiclesController {
 		return "vehicle_details";
 	}
 	
-	// Get the vehicle from the external context
+	// Get the vehicle from the ExternalContext
 	public Vehicle getVehicle() {
 		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 

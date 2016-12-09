@@ -72,6 +72,23 @@ public class DAO {
 		conn.close();
 	}
 	
+	// Update the manufacturer in the manufacturer table with the code of the given manufacturer
+	public void updateManufacturer(Manufacturer manufacturer) throws Exception {
+		Connection conn = mysqlDS.getConnection();
+		PreparedStatement myStmt = conn.prepareStatement("UPDATE manufacturer " +
+					 									"SET manu_name=?, " +
+					 									"manu_details=? " +
+					 									"WHERE manu_code=?;");
+		
+		myStmt.setString(1, manufacturer.getManuName());
+		myStmt.setString(2, manufacturer.getManuDetails());
+		myStmt.setString(3, manufacturer.getManuCode());
+		myStmt.executeUpdate();
+		
+		myStmt.close();
+		conn.close();
+	}
+	
 	// Return an array list of all models from the database
 	public ArrayList<Model> getModels() throws Exception {
 		ArrayList<Model> models = new ArrayList<Model>();
