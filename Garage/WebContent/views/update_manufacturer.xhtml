@@ -3,6 +3,7 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html">
 	
 	<h:head>
+		<meta charset="ISO-8859-1"/>
 		<title>Garage - Update Manufacturer</title>
 	</h:head>
 	
@@ -14,14 +15,21 @@
 		<h:form>
 			<h:messages styleClass="message" globalOnly="true"/>
 			
-			Code: <h:inputText id="code" value="#{manufacturersController.updateManufacturer.manuCode}" readonly="true"/>
-			<h:message for="code" styleClass="message"/> 
-			<br/><br/>
-			Name: <h:inputText id="name" value="#{manufacturersController.updateManufacturer.manuName}" required="true" requiredMessage="Name is mandatory"/>
-			<h:message for="name" styleClass="message"/>
-			<br/><br/>
-			Details: <h:inputText value="#{manufacturersController.updateManufacturer.manuDetails}"/>
-			<br/><br/>
+			<h:panelGrid columns="2">
+				<h:outputText value="Code: "/>
+				<h:inputText value="#{manufacturersController.updateManufacturer.manuCode}" readonly="true"/>
+
+				<h:outputText value="Name: "/>
+				
+				<h:column>
+					<h:inputText id="name" value="#{manufacturersController.updateManufacturer.manuName}" required="true" requiredMessage="Name is mandatory"/>
+					<h:message for="name" styleClass="message"/>
+				</h:column>
+				
+				<h:outputText value="Details: "/>
+				<h:inputText value="#{manufacturersController.updateManufacturer.manuDetails}"/>
+			</h:panelGrid>
+			
 			<h:commandButton value="Update" action="#{manufacturersController.updateManufacturer(manufacturersController.updateManufacturer)}"/>
 		</h:form>
 		

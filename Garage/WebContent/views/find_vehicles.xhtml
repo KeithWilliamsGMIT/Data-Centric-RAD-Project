@@ -4,6 +4,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 	
 	<h:head>
+		<meta charset="ISO-8859-1"/>
 		<title>Garage - Find Vehicles</title>
 	</h:head>
 	
@@ -13,29 +14,32 @@
 		<h3>Find All Vehicles</h3>
 		
 		<h:form>
-			<h:messages styleClass="message"/>
+			<h:messages styleClass="message" globalOnly="true"/>
 			
-			Price: 
-			
-			<h:selectOneMenu value="#{search.range}">
-				<f:selectItem itemValue="&lt;" itemLabel="Less Than"/>
-				<f:selectItem itemValue="&gt;" itemLabel="Greater Than"/>
-				<f:selectItem itemValue="=" itemLabel="Equal To"/>
-			</h:selectOneMenu>
-			
-			<h:inputText value="#{search.price}"/>
-			<br/><br/>
-			
-			Colour: <h:inputText value="#{search.colour}"/>
-			<br/><br/>
-			
-			Fuel:
-			
-			<h:selectOneMenu value="#{search.fuel}">
-				<f:selectItem itemValue="petrol" itemLabel="Petrol"/>
-				<f:selectItem itemValue="diesel" itemLabel="Diesel"/>
-			</h:selectOneMenu>
-			<br/><br/>
+			<h:panelGrid columns="2">
+				<h:outputText value="Price: "/>
+				
+				<h:column>
+					<h:selectOneMenu value="#{search.range}">
+						<f:selectItem itemValue="&lt;" itemLabel="Less Than"/>
+						<f:selectItem itemValue="&gt;" itemLabel="Greater Than"/>
+						<f:selectItem itemValue="=" itemLabel="Equal To"/>
+					</h:selectOneMenu>
+					
+					<h:inputText id="price" value="#{search.price}" converterMessage="Price must be a number"/>
+					<h:message for="price" styleClass="message"/>
+				</h:column>
+				
+				<h:outputText value="Colour: "/>
+				<h:inputText value="#{search.colour}"/>
+				
+				<h:outputText value="Fuel: "/>
+				
+				<h:selectOneMenu value="#{search.fuel}">
+					<f:selectItem itemValue="petrol" itemLabel="Petrol"/>
+					<f:selectItem itemValue="diesel" itemLabel="Diesel"/>
+				</h:selectOneMenu>
+			</h:panelGrid>
 			
 			<h:commandButton value="Search" action="#{vehiclesController.searchVehicles(search)}"/>
 		</h:form>

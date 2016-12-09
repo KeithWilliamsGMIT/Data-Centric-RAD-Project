@@ -4,6 +4,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 	
 	<h:head>
+		<meta charset="ISO-8859-1"/>
 		<title>Garage - Add Vehicle</title>
 	</h:head>
 	
@@ -15,33 +16,48 @@
 		<h:form>
 			<h:messages styleClass="message" globalOnly="true"/>
 			
-			Registration: <h:inputText id="registration" value="#{vehicle.vehicleReg}" required="true" requiredMessage="Reistration is mandatory"/>
-			<h:message for="registration" styleClass="message"/>
-			<br/><br/>
+			<h:panelGrid columns="2">
+				<h:outputText value="Registration: "/>
+				
+				<h:column>
+					<h:inputText id="registration" value="#{vehicle.vehicleReg}" required="true" requiredMessage="Reistration is mandatory"/>
+					<h:message for="registration" styleClass="message"/>
+				</h:column>
 			
-			Manufacturer Code: <h:inputText id="manufacturer" value="#{vehicle.model.manufacturer.manuCode}" required="true" requiredMessage="Manufacturer is mandatory"/>
-			<h:message for="manufacturer" styleClass="message"/>
-			<br/><br/>
+				<h:outputText value="Manufacturer Code: "/>
+				
+				<h:column>
+					<h:inputText id="manufacturer" value="#{vehicle.model.manufacturer.manuCode}" required="true" requiredMessage="Manufacturer is mandatory"/>
+					<h:message for="manufacturer" styleClass="message"/>
+				</h:column>
 			
-			Model Code: <h:inputText id="model" value="#{vehicle.model.modelCode}" required="true" requiredMessage="Model is mandatory"/>
-			<h:message for="model" styleClass="message"/>
-			<br/><br/>
+				<h:outputText value="Model Code: "/>
+				
+				<h:column>
+					<h:inputText id="model" value="#{vehicle.model.modelCode}" required="true" requiredMessage="Model is mandatory"/>
+					<h:message for="model" styleClass="message"/>
+				</h:column>
 			
-			Mileage: <h:inputText value="#{vehicle.vehicleMileage}"/>
-			<br/><br/>
+				<h:outputText value="Mileage: "/>
+				<h:inputText value="#{vehicle.vehicleMileage}"/>
 			
-			Price: <h:inputText id="price" value="#{vehicle.vehiclePrice}" required="true" requiredMessage="Price is mandatory"/>
-			<h:message for="model" styleClass="message"/>
-			<br/><br/>
+				<h:outputText value="Price: "/>
+				
+				<h:column>
+					<h:inputText id="price" value="#{vehicle.vehiclePrice}" required="true" requiredMessage="Price is mandatory" converterMessage="Price must be a number"/>
+					<h:message for="price" styleClass="message"/>
+				</h:column>
 			
-			Colour: <h:inputText value="#{vehicle.vehicleColour}"/>
-			<br/><br/>
+				<h:outputText value="Colour: "/>
+				<h:inputText value="#{vehicle.vehicleColour}"/>
 			
-			Fuel: <h:selectOneMenu value="#{vehicle.vehicleFuel}">
-				<f:selectItem itemValue="petrol" itemLabel="Petrol"/>
-				<f:selectItem itemValue="diesel" itemLabel="Diesel"/>
-			</h:selectOneMenu>
-			<br/><br/>
+				<h:outputText value="Fuel: "/>
+				
+				<h:selectOneMenu value="#{vehicle.vehicleFuel}">
+					<f:selectItem itemValue="petrol" itemLabel="Petrol"/>
+					<f:selectItem itemValue="diesel" itemLabel="Diesel"/>
+				</h:selectOneMenu>
+			</h:panelGrid>
 			
 			<h:commandButton value="Add" action="#{vehiclesController.addVehicle(vehicle)}"/>
 		</h:form>
