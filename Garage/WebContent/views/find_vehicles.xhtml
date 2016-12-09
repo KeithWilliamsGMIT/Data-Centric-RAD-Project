@@ -13,30 +13,31 @@
 		<h3>Find All Vehicles</h3>
 		
 		<h:form>
-			<h:messages styleClass="message" globalOnly="true"/>
+			<h:messages styleClass="message"/>
 			
 			Price: 
 			
-			<h:selectOneMenu>
-				<f:selectItem itemValue="less" itemLabel="Less Than"/>
-				<f:selectItem itemValue="greater" itemLabel="Greater Than"/>
-				<f:selectItem itemValue="equal" itemLabel="Equal To"/>
+			<h:selectOneMenu value="#{search.range}">
+				<f:selectItem itemValue="&lt;" itemLabel="Less Than"/>
+				<f:selectItem itemValue="&gt;" itemLabel="Greater Than"/>
+				<f:selectItem itemValue="=" itemLabel="Equal To"/>
 			</h:selectOneMenu>
 			
-			<h:inputText/>
+			<h:inputText value="#{search.price}"/>
 			<br/><br/>
 			
-			Colour: <h:inputText/>
+			Colour: <h:inputText value="#{search.colour}"/>
 			<br/><br/>
 			
-			Fuel: <h:selectOneMenu>
+			Fuel:
+			
+			<h:selectOneMenu value="#{search.fuel}">
 				<f:selectItem itemValue="petrol" itemLabel="Petrol"/>
 				<f:selectItem itemValue="diesel" itemLabel="Diesel"/>
 			</h:selectOneMenu>
 			<br/><br/>
 			
-			<!-- Replace search_results with a method to get all vehicles that match the search -->
-			<h:commandButton value="Search" action="search_results"/>
+			<h:commandButton value="Search" action="#{vehiclesController.searchVehicles(search)}"/>
 		</h:form>
 		
 		<h:link value="Home" outcome="index"/>

@@ -38,7 +38,7 @@
 					<f:facet name="header">Action</f:facet>
 					<h:commandLink value="Update" action="#{manufacturersController.setUpdateManufacturer(manufacturer)}"/>
 					<br/>
-					<h:commandLink value="Delete" action="#{manufacturersController.deleteManufacturer(manufacturer)}"/>
+					<h:commandLink value="Delete" action="#{manufacturersController.deleteManufacturer(manufacturer)}" onclick="confirm('Delete this manufacturer?')"/>
 				</h:column>
 			</h:dataTable>
 		</h:form>

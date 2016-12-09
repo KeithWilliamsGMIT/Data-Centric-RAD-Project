@@ -30,6 +30,9 @@ public class ManufacturersController {
 	public void loadManufacturers() {
 		try {
 			manufacturers = dao.getManufacturers();
+		} catch (SQLException se) {
+			FacesMessage message = new FacesMessage("ERROR: " + se.getMessage());
+			FacesContext.getCurrentInstance().addMessage(null, message);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

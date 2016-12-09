@@ -26,6 +26,9 @@ public class ModelsController {
 	public void loadModels() {
 		try {
 			models = dao.getModels();
+		} catch (SQLException se) {
+			FacesMessage message = new FacesMessage("ERROR: " + se.getMessage());
+			FacesContext.getCurrentInstance().addMessage(null, message);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -53,6 +53,21 @@ public class VehiclesController {
 		return null;
 	}
 	
+	// Use the DAO to get all the vehicles from the database that match the search
+	public String searchVehicles(Search search) {
+		try {
+			vehicles = dao.searchVehicles(search);
+			return "search_results";
+		} catch (SQLException se) {
+			FacesMessage message = new FacesMessage("ERROR: " + se.getMessage());
+			FacesContext.getCurrentInstance().addMessage(null, message);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
 	// Add the selected vehicle to ExternalContext 
 	public String allDetails(Vehicle vehicle) {
 		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();

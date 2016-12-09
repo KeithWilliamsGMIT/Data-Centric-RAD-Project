@@ -10,8 +10,7 @@
 	<h:body>
 		<h:outputStylesheet library="css" name="style.css"/>
 		
-		<!-- Vehicles is a placeholder. Replace it with the vehicles that match the search. -->
-		<h:dataTable value="#{vehicles}" var="vehicle"
+		<h:dataTable value="#{vehiclesController.vehicles}" var="vehicle"
 			headerClass="tableHeader"
 			rowClasses="tableOddRow,tableEvenRow">
 			<h:column>    				

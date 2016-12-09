@@ -189,4 +189,71 @@ public class DAO {
 		myStmt.close();
 		conn.close();
 	}
+	
+	// Return an array list of all vehicles from the database that match the search
+	public ArrayList<Vehicle> searchVehicles(Search search) throws Exception {
+		ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
+		
+		Connection conn = mysqlDS.getConnection();
+		
+		// Build the query
+		String query = "SELECT * FROM manufacturer ma " +
+						"INNER JOIN model mo " +
+						"ON ma.manu_code = mo.manu_code " +
+						"INNER JOIN vehicle v " +
+						"ON mo.model_code = v.model_code " +
+						"WHERE ";
+		
+		if (search.getPrice() != null) {
+			query += "v.price " + search.getRange() + " ? AND ";
+		}
+		
+		if (!search.getColour().isEmpty()) {
+			query += "v.colour = ? AND ";
+		}
+		
+		query += "v.fuel = ?;";
+		
+		PreparedStatement myStmt = conn.prepareStatement(query);
+		
+		// Set parameters
+		int index = 1;
+		
+		if (search.getPrice() != null) {
+			myStmt.setFloat(index++, search.getPrice());
+		}
+		
+		if (!search.getColour().isEmpty()) {
+			myStmt.setString(index++, search.getColour());
+		}
+		
+		myStmt.setString(index, search.getFuel());
+		
+		ResultSet rs = myStmt.executeQuery();
+		
+		while (rs.next()) {
+			String manuCode = rs.getString("manu_code");
+			String manuName = rs.getString("manu_name");
+			String manuDetails = rs.getString("manu_details");
+			Manufacturer manufacturer = new Manufacturer(manuCode, manuName, manuDetails);
+			
+			String modelCode = rs.getString("model_code");
+			String modelName = rs.getString("model_name");
+			String manuDesc = rs.getString("model_desc");
+			Model model = new Model(manufacturer, modelCode, modelName, manuDesc);
+			
+			String reg = rs.getString("reg");
+			int mileage = rs.getInt("mileage");
+			float price = rs.getFloat("price");
+			String colour = rs.getString("colour");
+			String fuel = rs.getString("fuel");
+			vehicles.add(new Vehicle(reg, model, mileage, price, colour, fuel));
+		}
+		
+		myStmt.close();
+		rs.close();
+		conn.close();
+		
+		return vehicles;
+	}
 }
