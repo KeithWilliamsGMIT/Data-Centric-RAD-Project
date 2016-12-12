@@ -25,19 +25,19 @@
 				rowClasses="tableOddRow,tableEvenRow">
 				<h:column>    				
 					<f:facet name="header">Manufacturer Code</f:facet>    				
-					#{model.manufacturer.manuCode}
+					<h:outputText value="#{model.manufacturer.manuCode}"/>
 				</h:column>
 				<h:column>
 					<f:facet name="header">Model Code</f:facet>
-					#{model.modelCode}
+					<h:outputText value="#{model.modelCode}"/>
 				</h:column>
 				<h:column>
 					<f:facet name="header">Model Name</f:facet>
-					#{model.modelName}
+					<h:outputText value="#{model.modelName}"/>
 				</h:column>
 				<h:column>
 					<f:facet name="header">Model Description</f:facet>
-					#{model.modelDesc}
+					<h:outputText value="#{model.modelDesc}"/>
 				</h:column>
 			</h:dataTable>
 		</h:form>

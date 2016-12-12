@@ -31,7 +31,15 @@ public class ManufacturersController {
 		try {
 			manufacturers = dao.getManufacturers();
 		} catch (SQLException se) {
-			FacesMessage message = new FacesMessage("ERROR: " + se.getMessage());
+			String m = se.getMessage();
+			
+			switch(se.getErrorCode()) {
+			case 0:
+				m = "Cannot connect to database";
+				break;
+			}
+			
+			FacesMessage message = new FacesMessage("ERROR: " + m);
 			FacesContext.getCurrentInstance().addMessage(null, message);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -44,7 +52,15 @@ public class ManufacturersController {
 			dao.deleteManufacturer(manufacturer);
 			manufacturers.remove(manufacturer);
 		} catch (SQLException se) {
-			FacesMessage message = new FacesMessage("ERROR: " + se.getMessage());
+			String m = se.getMessage();
+			
+			switch(se.getErrorCode()) {
+			case 0:
+				m = "Cannot connect to database";
+				break;
+			}
+			
+			FacesMessage message = new FacesMessage("ERROR: " + m);
 			FacesContext.getCurrentInstance().addMessage(null, message);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -59,7 +75,15 @@ public class ManufacturersController {
 			dao.addManufacturer(manufacturer);
 			return "list_manufacturers";
 		} catch (SQLException se) {
-			FacesMessage message = new FacesMessage("ERROR: " + se.getMessage());
+			String m = se.getMessage();
+			
+			switch(se.getErrorCode()) {
+			case 0:
+				m = "Cannot connect to database";
+				break;
+			}
+			
+			FacesMessage message = new FacesMessage("ERROR: " + m);
 			FacesContext.getCurrentInstance().addMessage(null, message);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -74,7 +98,15 @@ public class ManufacturersController {
 			dao.updateManufacturer(manufacturer);
 			return "list_manufacturers";
 		} catch (SQLException se) {
-			FacesMessage message = new FacesMessage("ERROR: " + se.getMessage());
+			String m = se.getMessage();
+			
+			switch(se.getErrorCode()) {
+			case 0:
+				m = "Cannot connect to database";
+				break;
+			}
+			
+			FacesMessage message = new FacesMessage("ERROR: " + m);
 			FacesContext.getCurrentInstance().addMessage(null, message);
 		} catch (Exception e) {
 			e.printStackTrace();

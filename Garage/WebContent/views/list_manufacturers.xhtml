@@ -25,21 +25,21 @@
 				rowClasses="tableOddRow,tableEvenRow">
 				<h:column>    				
 					<f:facet name="header">Manufacturer Code</f:facet>    				
-					#{manufacturer.manuCode}
+					<h:outputText value="#{manufacturer.manuCode}"/>
 				</h:column>
 				<h:column>
 					<f:facet name="header">Manufacturer Name</f:facet>
-					#{manufacturer.manuName}
+					<h:outputText value="#{manufacturer.manuName}"/>
 				</h:column>
 				<h:column>
 					<f:facet name="header">Manufacturer Details</f:facet>
-					#{manufacturer.manuDetails}
+					<h:outputText value="#{manufacturer.manuDetails}"/>
 				</h:column>
 				<h:column>
 					<f:facet name="header">Action</f:facet>
 					<h:commandLink value="Update" action="#{manufacturersController.setUpdateManufacturer(manufacturer)}"/>
 					<br/>
-					<h:commandLink value="Delete" action="#{manufacturersController.deleteManufacturer(manufacturer)}" onclick="confirm('Delete this manufacturer?')"/>
+					<h:commandLink value="Delete" action="#{manufacturersController.deleteManufacturer(manufacturer)}" onclick="if(confirm('Delete this manufacturer?')){return true}return false;"/>
 				</h:column>
 			</h:dataTable>
 		</h:form>

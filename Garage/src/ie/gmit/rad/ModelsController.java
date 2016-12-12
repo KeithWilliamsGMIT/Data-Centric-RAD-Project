@@ -27,7 +27,15 @@ public class ModelsController {
 		try {
 			models = dao.getModels();
 		} catch (SQLException se) {
-			FacesMessage message = new FacesMessage("ERROR: " + se.getMessage());
+			String m = se.getMessage();
+			
+			switch(se.getErrorCode()) {
+			case 0:
+				m = "Cannot connect to database";
+				break;
+			}
+			
+			FacesMessage message = new FacesMessage("ERROR: " + m);
 			FacesContext.getCurrentInstance().addMessage(null, message);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -40,7 +48,15 @@ public class ModelsController {
 			dao.addModel(model);
 			return "list_models";
 		} catch (SQLException se) {
-			FacesMessage message = new FacesMessage("ERROR: " + se.getMessage());
+			String m = se.getMessage();
+			
+			switch(se.getErrorCode()) {
+			case 0:
+				m = "Cannot connect to database";
+				break;
+			}
+			
+			FacesMessage message = new FacesMessage("ERROR: " + m);
 			FacesContext.getCurrentInstance().addMessage(null, message);
 		} catch (Exception e) {
 			e.printStackTrace();

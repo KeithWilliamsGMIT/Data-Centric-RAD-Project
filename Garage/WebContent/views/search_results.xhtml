@@ -16,39 +16,41 @@
 			rowClasses="tableOddRow,tableEvenRow">
 			<h:column>    				
 				<f:facet name="header">Registration</f:facet>    
-				#{vehicle.vehicleReg}
+				<h:outputText value="#{vehicle.vehicleReg}"/>
 			</h:column>
 			<h:column>
 				<f:facet name="header">Manufacturer Code</f:facet>
-				#{vehicle.model.manufacturer.manuCode}
+				<h:outputText value="#{vehicle.model.manufacturer.manuCode}"/>
 			</h:column>
 			<h:column>
 				<f:facet name="header">Manufacturer Name</f:facet>
-				#{vehicle.model.manufacturer.manuName}
+				<h:outputText value="#{vehicle.model.manufacturer.manuName}"/>
 			</h:column>
 			<h:column>
 				<f:facet name="header">Model Code</f:facet>
-				#{vehicle.model.modelCode}
+				<h:outputText value="#{vehicle.model.modelCode}"/>
 			</h:column>
 			<h:column>
 				<f:facet name="header">Model Name</f:facet>
-				#{vehicle.model.modelName}
+				<h:outputText value="#{vehicle.model.modelName}"/>
 			</h:column>
 			<h:column>
 				<f:facet name="header">Mileage</f:facet>
-				#{vehicle.vehicleMileage}
+				<h:outputText value="#{vehicle.vehicleMileage}"/>
 			</h:column>
 			<h:column>
 				<f:facet name="header">Price</f:facet>
-				#{vehicle.vehiclePrice}
+				<h:outputText value="#{vehicle.vehiclePrice}">
+					<f:convertNumber type="currency"/>
+			    </h:outputText>
 			</h:column>
 			<h:column>
 				<f:facet name="header">Colour</f:facet>
-				#{vehicle.vehicleColour}
+				<h:outputText value="#{vehicle.vehicleColour}"/>
 			</h:column>
 			<h:column>
 				<f:facet name="header">Fuel</f:facet>
-				#{vehicle.vehicleFuel}
+				<h:outputText value="#{vehicle.vehicleFuel}"/>
 			</h:column>
 		</h:dataTable>
 		

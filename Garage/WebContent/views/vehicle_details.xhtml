@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html">
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
 	
 	<h:head>
 		<meta charset="ISO-8859-1"/>
@@ -38,7 +39,9 @@
 			<h:outputText value="#{vehiclesController.vehicle.vehicleMileage}"/>
 			
 			<h:outputText value="Price: " styleClass="bold"/>
-			<h:outputText value="#{vehiclesController.vehicle.vehiclePrice}"/>
+			<h:outputText value="#{vehiclesController.vehicle.vehiclePrice}">
+				<f:convertNumber type="currency"/>
+		    </h:outputText>
 			
 			<h:outputText value="Colour: " styleClass="bold"/>
 			<h:outputText value="#{vehiclesController.vehicle.vehicleColour}"/>

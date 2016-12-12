@@ -31,7 +31,15 @@ public class VehiclesController {
 		try {
 			vehicles = dao.getVehicles();
 		} catch (SQLException se) {
-			FacesMessage message = new FacesMessage("ERROR: " + se.getMessage());
+			String m = se.getMessage();
+			
+			switch(se.getErrorCode()) {
+			case 0:
+				m = "Cannot connect to database";
+				break;
+			}
+			
+			FacesMessage message = new FacesMessage("ERROR: " + m);
 			FacesContext.getCurrentInstance().addMessage(null, message);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -44,7 +52,15 @@ public class VehiclesController {
 			dao.addVehicle(vehicle);
 			return "list_vehicles";
 		} catch (SQLException se) {
-			FacesMessage message = new FacesMessage("ERROR: " + se.getMessage());
+			String m = se.getMessage();
+			
+			switch(se.getErrorCode()) {
+			case 0:
+				m = "Cannot connect to database";
+				break;
+			}
+			
+			FacesMessage message = new FacesMessage("ERROR: " + m);
 			FacesContext.getCurrentInstance().addMessage(null, message);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -59,7 +75,15 @@ public class VehiclesController {
 			vehicles = dao.searchVehicles(search);
 			return "search_results";
 		} catch (SQLException se) {
-			FacesMessage message = new FacesMessage("ERROR: " + se.getMessage());
+			String m = se.getMessage();
+			
+			switch(se.getErrorCode()) {
+			case 0:
+				m = "Cannot connect to database";
+				break;
+			}
+			
+			FacesMessage message = new FacesMessage("ERROR: " + m);
 			FacesContext.getCurrentInstance().addMessage(null, message);
 		} catch (Exception e) {
 			e.printStackTrace();
